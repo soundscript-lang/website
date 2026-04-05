@@ -117,12 +117,13 @@ const config: Config = {
   future: {
     v4: true,
   },
-  url: 'https://soundscript-lang.github.io',
-  baseUrl: '/website/',
+  url: 'https://soundscript.dev',
+  baseUrl: '/',
   organizationName: 'soundscript-lang',
   projectName: 'website',
   trailingSlash: false,
   onBrokenLinks: 'throw',
+  scripts: ['/canonical-host-redirect.js'],
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],

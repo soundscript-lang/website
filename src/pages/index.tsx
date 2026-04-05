@@ -478,7 +478,7 @@ export default function Home(): ReactNode {
       {
         '@type': 'WebSite',
         name: 'soundscript',
-        url: 'https://soundscript-lang.github.io/website/',
+        url: 'https://soundscript.dev/',
         description:
           'soundscript helps TypeScript teams tighten the contract in critical modules without abandoning the TS ecosystem.',
         inLanguage: 'en',
@@ -486,7 +486,7 @@ export default function Home(): ReactNode {
       {
         '@type': 'SoftwareSourceCode',
         name: 'soundscript',
-        url: 'https://soundscript-lang.github.io/website/',
+        url: 'https://soundscript.dev/',
         codeRepository: 'https://github.com/soundscript-lang/soundscript',
         programmingLanguage: 'TypeScript',
         runtimePlatform: 'JavaScript',
