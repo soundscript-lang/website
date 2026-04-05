@@ -16,15 +16,22 @@ words:
   - docsearch
   - inout
   - interop
+  - kinded
+  - llms
   - macros
   - metaprogramming
   - newtype
   - newtypes
+  - nominality
   - nullness
   - numerics
   - overclaimed
   - overclaiming
+  - overclaims
   - playwright
+  - rethrowing
+  - scrutinee
+  - signedness
   - soundscript
   - soundness
   - stdlib
@@ -34,12 +41,14 @@ words:
   - sublabel
   - sublist
   - thenables
+  - typeclass
   - tsconfig
   - typecheck
   - typeclasses
   - unlisted
   - userland
   - wasi
+  - widenings
   - wordmark
   - valueclass
   - wasm
