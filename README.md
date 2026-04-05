@@ -42,6 +42,13 @@ Then set:
 
 If those variables are absent, the site still builds and runs, but the DocSearch UI is not shown.
 
+For GitHub Pages deploys, add the same values as GitHub Actions secrets on the
+`website` repo:
+
+- `DOCSEARCH_APP_ID`
+- `DOCSEARCH_API_KEY`
+- `DOCSEARCH_INDEX_NAME`
+
 ## Crawlers and LLMs
 
 The published site also ships crawler-friendly files from `static/`:

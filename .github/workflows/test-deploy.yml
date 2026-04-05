@@ -9,6 +9,10 @@ jobs:
   quality:
     name: Typecheck, lint, and build
     runs-on: ubuntu-latest
+    env:
+      DOCSEARCH_APP_ID: ${{ secrets.DOCSEARCH_APP_ID }}
+      DOCSEARCH_API_KEY: ${{ secrets.DOCSEARCH_API_KEY }}
+      DOCSEARCH_INDEX_NAME: ${{ secrets.DOCSEARCH_INDEX_NAME }}
 
     steps:
       - uses: actions/checkout@v4
@@ -38,6 +42,10 @@ jobs:
   smoke:
     name: Browser smoke and accessibility
     runs-on: ubuntu-latest
+    env:
+      DOCSEARCH_APP_ID: ${{ secrets.DOCSEARCH_APP_ID }}
+      DOCSEARCH_API_KEY: ${{ secrets.DOCSEARCH_API_KEY }}
+      DOCSEARCH_INDEX_NAME: ${{ secrets.DOCSEARCH_INDEX_NAME }}
 
     steps:
       - uses: actions/checkout@v4
