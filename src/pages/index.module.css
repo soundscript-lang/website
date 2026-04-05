@@ -1,0 +1,493 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 4.75rem 0 4rem;
+  border-bottom: 1px solid #e6e8ee;
+}
+
+.heroGlow {
+  position: absolute;
+  inset: -6rem auto auto 20%;
+  width: 30rem;
+  height: 16rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(109, 40, 217, 0.1), transparent 72%);
+  filter: blur(42px);
+  pointer-events: none;
+}
+
+.heroLayout {
+  position: relative;
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.heroCopy {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 48rem;
+}
+
+.eyebrow,
+.sectionEyebrow {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border: 1px solid #ddd6fe;
+  background: #f6f1ff;
+  border-radius: 999px;
+  padding: 0.38rem 0.78rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5b21b6;
+}
+
+.heroWordmark {
+  margin: 0;
+  font-size: clamp(4rem, 10vw, 6.6rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  color: #111827;
+}
+
+.heroWordmarkAccent {
+  color: #a855f7;
+}
+
+.heroTagline {
+  margin: 0;
+  max-width: 19ch;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  color: #111827;
+}
+
+.heroText {
+  margin: 0;
+  max-width: 43rem;
+  font-size: 1.12rem;
+  line-height: 1.78;
+  color: #475569;
+}
+
+.heroText code,
+.cardText code,
+.sectionText code {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 0.45rem;
+  padding: 0.14rem 0.38rem;
+  color: #5b21b6;
+}
+
+.heroPanel {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  padding: 1.4rem;
+  border: 1px solid #e2daf6;
+  border-radius: 1rem;
+  background: #ffffff;
+  box-shadow: 0 18px 36px rgba(72, 51, 124, 0.08);
+}
+
+.heroPrimaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.3rem;
+  padding: 1rem 1.4rem;
+  border-radius: 0.9rem;
+  background: #6d28d9;
+  color: #ffffff;
+  font-size: 1.12rem;
+  font-weight: 800;
+  text-decoration: none !important;
+}
+
+.heroPrimaryAction:hover {
+  color: #ffffff;
+  background: #5b21b6;
+  text-decoration: none;
+}
+
+.heroPanelLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.heroPanelLink {
+  color: #5b21b6;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.heroPanelLink:hover {
+  color: #4c1d95;
+}
+
+.heroFacts {
+  margin: 0;
+  padding: 1rem 0 0 1.1rem;
+  border-top: 1px solid #eceff4;
+  color: #243041;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.heroPanelNote {
+  margin: 0;
+  color: #556274;
+  line-height: 1.68;
+}
+
+.valueSection {
+  padding: 3.75rem 0 4rem;
+  background: #43355f;
+  color: #ffffff;
+}
+
+.valueIntro {
+  max-width: 48rem;
+  margin-bottom: 2.2rem;
+}
+
+.valueTitle {
+  margin: 0;
+  display: inline-block;
+  padding-bottom: 0.35rem;
+  border-bottom: 0.32rem solid #b794f6;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+}
+
+.valueText {
+  margin: 1rem 0 0;
+  max-width: 44rem;
+  font-size: 1.08rem;
+  line-height: 1.78;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.valueText + .valueText {
+  margin-top: 0.6rem;
+}
+
+.valueGrid,
+.advancedGrid,
+.ctaGrid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.valueCard {
+  padding: 0;
+}
+
+.valueCard .cardTitle {
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.valueCard .cardText {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.section {
+  padding: 4.4rem 0;
+}
+
+.section + .section {
+  border-top: 1px solid #eceff4;
+}
+
+.ctaSection {
+  padding: 2rem 0 5rem;
+}
+
+.sectionHeader {
+  max-width: 50rem;
+  margin: 0 0 2rem;
+  text-align: left;
+}
+
+.sectionTitle {
+  margin: 0.9rem 0 0;
+  font-size: clamp(2rem, 3.7vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  color: #111827;
+}
+
+.sectionText {
+  margin: 1rem 0 0;
+  max-width: 42rem;
+  font-size: 1.04rem;
+  line-height: 1.8;
+  color: #475569;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #111827;
+}
+
+.cardText {
+  margin: 0.78rem 0 0;
+  color: #556274;
+  line-height: 1.74;
+}
+
+.changeStack {
+  display: grid;
+  gap: 1rem;
+}
+
+.changeRow,
+.advancedCard,
+.ctaCard,
+.boundaryCard {
+  border: 1px solid #e6e8ee;
+  border-radius: 1rem;
+  background: #ffffff;
+}
+
+.changeRow {
+  display: grid;
+  gap: 1.2rem;
+  padding: 1.35rem;
+}
+
+.changeIntro {
+  display: grid;
+  gap: 0.55rem;
+  max-width: 46rem;
+}
+
+.changeTitle {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.4;
+  color: #111827;
+}
+
+.changeDiff {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.diffPanel,
+.diffPanelPrimary {
+  overflow: hidden;
+  border-radius: 0.9rem;
+  border: 1px solid #e6e8ee;
+  background: #f8fafc;
+}
+
+.diffPanelPrimary {
+  border-color: #ddd6fe;
+  background: #faf7ff;
+}
+
+.diffLabel {
+  padding: 0.75rem 0.9rem 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #556274;
+}
+
+.compactSnippet {
+  margin: 0;
+  padding: 0.78rem 0.9rem 0.9rem;
+  overflow-x: auto;
+  background: transparent;
+  color: #1f2937;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.88rem;
+  line-height: 1.62;
+  white-space: pre;
+}
+
+.compactSnippet:focus {
+  outline: 2px solid #c4b5fd;
+  outline-offset: -2px;
+}
+
+.sectionNote {
+  margin: 1.5rem 0 0;
+  max-width: 46rem;
+  color: #556274;
+  line-height: 1.75;
+}
+
+.inlineLink {
+  color: #5b21b6;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.inlineLink:hover {
+  color: #4c1d95;
+}
+
+.adoptionLayout {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.stepStack {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+}
+
+.stepCard {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eceff4;
+}
+
+.stepCard:last-of-type {
+  border-bottom: 0;
+}
+
+.stepNumber {
+  display: inline-flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #f5f3ff;
+  color: #5b21b6;
+  font-weight: 700;
+}
+
+.boundaryCard {
+  padding: 1rem;
+}
+
+.boundaryCard :global(.theme-code-block) {
+  margin-bottom: 0;
+  border: 1px solid #e6e8ee;
+  box-shadow: none;
+}
+
+.boundaryCard :global(.theme-code-block pre) {
+  background: #f8fafc !important;
+}
+
+.advancedCard,
+.ctaCard {
+  padding: 1.35rem;
+  text-decoration: none !important;
+}
+
+.advancedCard:hover,
+.ctaCard:hover {
+  border-color: #cdd4df;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.05);
+  text-decoration: none;
+}
+
+.ctaBand {
+  border: 1px solid #e6e8ee;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  padding: 1.75rem;
+}
+
+.ctaFootnote {
+  margin: 1.2rem 0 0;
+  color: #556274;
+  line-height: 1.7;
+}
+
+@media screen and (min-width: 997px) {
+  .heroLayout {
+    grid-template-columns: minmax(0, 1.45fr) minmax(20rem, 0.75fr);
+  }
+
+  .valueGrid,
+  .advancedGrid,
+  .ctaGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .valueGrid {
+    column-gap: 4rem;
+    row-gap: 1.75rem;
+  }
+
+  .changeRow {
+    align-items: start;
+  }
+
+  .changeDiff {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.1rem;
+  }
+
+  .adoptionLayout {
+    grid-template-columns: minmax(0, 0.56fr) minmax(0, 1.44fr);
+    column-gap: 2rem;
+  }
+
+  .boundaryCard :global(.theme-code-block pre) {
+    font-size: 0.9rem;
+    line-height: 1.62;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .hero {
+    padding-top: 4.1rem;
+  }
+
+  .heroWordmark {
+    font-size: clamp(3.3rem, 16vw, 5.1rem);
+  }
+
+  .heroTagline {
+    max-width: none;
+    font-size: clamp(1.7rem, 8vw, 2.5rem);
+  }
+
+  .heroText,
+  .sectionText,
+  .cardText,
+  .valueText {
+    font-size: 1rem;
+  }
+
+  .heroPrimaryAction {
+    width: 100%;
+  }
+
+  .heroPanelLinks {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .ctaBand {
+    padding: 1.35rem;
+  }
+}

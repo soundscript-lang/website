@@ -1,0 +1,24 @@
+# soundscript
+
+soundscript is a stricter subset of TypeScript for teams that want stronger guarantees in critical code.
+
+Primary site:
+- https://soundscript-lang.github.io/website/
+
+Docs:
+- https://soundscript-lang.github.io/website/docs
+- https://soundscript-lang.github.io/website/docs/getting-started/quick-start
+- https://soundscript-lang.github.io/website/docs/getting-started/soundscript-vs-typescript
+- https://soundscript-lang.github.io/website/docs/getting-started/adopt-in-existing-typescript-apps
+
+Advanced reference:
+- https://soundscript-lang.github.io/website/docs/reference/macros
+- https://soundscript-lang.github.io/website/docs/reference/machine-numerics
+- https://soundscript-lang.github.io/website/docs/reference/newtypes-and-value-classes
+- https://soundscript-lang.github.io/website/docs/reference/variance-contracts
+
+Repository:
+- https://github.com/soundscript-lang/soundscript
+
+Full index:
+- https://soundscript-lang.github.io/website/llms-full.txt

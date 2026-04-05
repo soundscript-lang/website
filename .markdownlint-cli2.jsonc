@@ -1,0 +1,15 @@
+{
+  "config": {
+    "default": true,
+    "line-length": false,
+    "first-line-heading": false,
+    "no-inline-html": false
+  },
+  "ignores": [
+    "node_modules/**",
+    "build/**",
+    ".docusaurus/**",
+    "playwright-report/**",
+    "test-results/**"
+  ]
+}

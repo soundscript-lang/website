@@ -1,0 +1,41 @@
+# soundscript
+
+soundscript is a stricter subset of TypeScript. It keeps TypeScript syntax, uses `.sts` files for
+checked code, and aims for full soundness inside a fully soundscript codebase. Ordinary TypeScript,
+JavaScript, and declaration-only code remain available through explicit `// #[interop]` boundaries.
+
+Homepage:
+- https://soundscript-lang.github.io/website/
+
+Core docs:
+- Introduction: https://soundscript-lang.github.io/website/docs
+- Quick start: https://soundscript-lang.github.io/website/docs/getting-started/quick-start
+- soundscript vs TypeScript: https://soundscript-lang.github.io/website/docs/getting-started/soundscript-vs-typescript
+- Adopt in existing TypeScript apps: https://soundscript-lang.github.io/website/docs/getting-started/adopt-in-existing-typescript-apps
+- Adoption FAQ: https://soundscript-lang.github.io/website/docs/getting-started/adoption-faq
+
+Concepts:
+- Soundness model: https://soundscript-lang.github.io/website/docs/concepts/soundness-model
+- Runtime and builtins: https://soundscript-lang.github.io/website/docs/concepts/runtime-and-builtins
+
+Guides:
+- Interop boundaries: https://soundscript-lang.github.io/website/docs/guides/interop-boundaries
+- Errors and failures: https://soundscript-lang.github.io/website/docs/guides/errors-and-failures
+- Tooling and workflow: https://soundscript-lang.github.io/website/docs/guides/tooling-and-js-target
+- CI and editor setup: https://soundscript-lang.github.io/website/docs/guides/ci-and-editor-setup
+- Publishing packages: https://soundscript-lang.github.io/website/docs/guides/publishing-packages
+
+Reference:
+- CLI: https://soundscript-lang.github.io/website/docs/reference/cli
+- Builtin modules: https://soundscript-lang.github.io/website/docs/reference/builtin-modules
+- Macros: https://soundscript-lang.github.io/website/docs/reference/macros
+- Fixed-width numeric types: https://soundscript-lang.github.io/website/docs/reference/machine-numerics
+- Newtypes and value classes: https://soundscript-lang.github.io/website/docs/reference/newtypes-and-value-classes
+- Variance contracts: https://soundscript-lang.github.io/website/docs/reference/variance-contracts
+- Annotation spec: https://soundscript-lang.github.io/website/docs/reference/annotation-spec
+- Diagnostics: https://soundscript-lang.github.io/website/docs/reference/diagnostics
+- Banned and restricted surface: https://soundscript-lang.github.io/website/docs/reference/banned-and-restricted
+
+Project repos:
+- Main repo: https://github.com/soundscript-lang/soundscript
+- Website repo: https://github.com/soundscript-lang/website

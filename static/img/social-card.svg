@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">soundscript social card</title>
+  <desc id="desc">soundscript, soundness for regular TypeScript apps.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0c12" />
+      <stop offset="100%" stop-color="#141421" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc" stop-opacity="0.32" />
+      <stop offset="100%" stop-color="#7e22ce" stop-opacity="0.05" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="920" cy="80" r="220" fill="url(#glow)" />
+  <circle cx="180" cy="620" r="260" fill="url(#glow)" />
+
+  <g transform="translate(88, 110)">
+    <svg width="136" height="136" viewBox="0 0 110 110">
+      <g transform="translate(5, 5)">
+        <path d="M 50 5 V 100 C 50 100, 5 85, 5 60 V 20 Z" fill="#A855F7" />
+        <path d="M 50 5 V 100 C 50 100, 95 85, 95 60 V 20 Z" fill="#7E22CE" />
+        <text
+          x="50"
+          y="76"
+          text-anchor="middle"
+          font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+          font-size="62"
+          font-weight="900"
+          fill="#FFFFFF"
+        >
+          S
+        </text>
+        <rect x="70" y="68" width="26" height="18" rx="3" fill="#E9D5FF" />
+        <text
+          x="83"
+          y="82"
+          text-anchor="middle"
+          font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+          font-size="13"
+          font-weight="900"
+          fill="#4C1D95"
+        >
+          ts
+        </text>
+      </g>
+    </svg>
+  </g>
+
+  <text
+    x="240"
+    y="198"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="92"
+    font-weight="800"
+    letter-spacing="-2"
+  >
+    <tspan fill="#FFFFFF">sound</tspan><tspan fill="#A855F7">script</tspan>
+  </text>
+
+  <text
+    x="92"
+    y="316"
+    fill="#FFFFFF"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="62"
+    font-weight="780"
+    letter-spacing="-1.5"
+  >
+    Soundness for regular TypeScript apps.
+  </text>
+
+  <text
+    x="92"
+    y="390"
+    fill="#d9dce6"
+    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="28"
+    font-weight="500"
+  >
+    Keep TypeScript syntax. Adopt .sts file by file. Tighten critical code.
+  </text>
+
+  <g transform="translate(92, 452)">
+    <rect width="180" height="42" rx="21" fill="rgba(168, 85, 247, 0.16)" />
+    <text
+      x="90"
+      y="28"
+      text-anchor="middle"
+      fill="#F5EFFF"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="20"
+      font-weight="700"
+    >
+      No syntax extensions
+    </text>
+  </g>
+  <g transform="translate(286, 452)">
+    <rect width="184" height="42" rx="21" fill="rgba(168, 85, 247, 0.16)" />
+    <text
+      x="92"
+      y="28"
+      text-anchor="middle"
+      fill="#F5EFFF"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="20"
+      font-weight="700"
+    >
+      Incremental adoption
+    </text>
+  </g>
+  <g transform="translate(484, 452)">
+    <rect width="112" height="42" rx="21" fill="rgba(168, 85, 247, 0.16)" />
+    <text
+      x="56"
+      y="28"
+      text-anchor="middle"
+      fill="#F5EFFF"
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font-size="20"
+      font-weight="700"
+    >
+      TS subset
+    </text>
+  </g>
+</svg>

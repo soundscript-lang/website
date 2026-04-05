@@ -1,0 +1,45 @@
+version: '0.2'
+language: en
+dictionaries:
+  - softwareTerms
+  - html
+  - css
+ignorePaths:
+  - node_modules
+  - build
+  - .docusaurus
+words:
+  - algolia
+  - builtin
+  - builtins
+  - cspell
+  - docsearch
+  - inout
+  - interop
+  - macros
+  - metaprogramming
+  - newtype
+  - newtypes
+  - nullness
+  - numerics
+  - overclaimed
+  - overclaiming
+  - playwright
+  - soundscript
+  - soundness
+  - stdlib
+  - stdio
+  - stringifying
+  - subclassing
+  - sublabel
+  - sublist
+  - thenables
+  - tsconfig
+  - typecheck
+  - typeclasses
+  - unlisted
+  - userland
+  - wasi
+  - wordmark
+  - valueclass
+  - wasm

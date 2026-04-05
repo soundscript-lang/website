@@ -1,0 +1,5 @@
+# soundscript
+
+See:
+- https://soundscript-lang.github.io/website/llms.txt
+- https://soundscript-lang.github.io/website/llms-full.txt
