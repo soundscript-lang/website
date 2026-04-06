@@ -62,10 +62,12 @@ An overload implementation does not satisfy all declared signatures.
 An assignment depends on an assignability relation that soundscript treats as unsound. Common
 examples include mutable array variance, callable parameter variance, and widening a value to an
 unrelated class target that only matches structurally.
+For the most common before/after fixes, see the `Common Rewrites` guide.
 
 ### SOUND1020
 
 Earlier narrowing was invalidated by aliasing, mutation, callback escape, or suspension.
+For the most common before/after fixes, see the `Common Rewrites` guide.
 
 ### SOUND1021
 
