@@ -38,6 +38,9 @@ The important part: the standard library macros are **100% user-space**. `Match`
 users can author against. They are shipped with soundscript, but they are not special parser syntax
 or hidden compiler forms.
 
+For a broader guide to `Try`, `isErr`, and the surrounding validation patterns, see
+[Idiomatic SoundScript](../guides/idiomatic-soundscript.md).
+
 ## The three macro forms
 
 Macro definitions are zero-argument exported functions annotated with `// #[macro(...)]`.

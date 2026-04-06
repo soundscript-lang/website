@@ -31,6 +31,7 @@ import { U8, type u8 } from "sts:numerics";
 ### `sts:prelude`
 
 Owns the small shared surface around core value-level helpers such as `Result` and `Option`.
+See the fuller module-by-module reference in [Builtin Modules](../reference/builtin-modules.md).
 
 ### `sts:failures`
 
@@ -41,6 +42,7 @@ normalized error value inside the current scope.
 
 Owns JSON boundary helpers so parsing and stringifying can live on an explicit soundscript surface
 instead of disappearing into unchecked assumptions.
+For a practical code-style guide, see [Idiomatic SoundScript](../guides/idiomatic-soundscript.md).
 
 ### `sts:numerics`
 
@@ -97,4 +99,4 @@ thinking about Wasm. The main docs path still starts with ordinary app code.
 
 - [Tooling and Workflow](../guides/tooling-and-js-target.md)
 - [Builtin Modules](../reference/builtin-modules.md)
-- [Tooling and Workflow](../guides/tooling-and-js-target.md)
+- [Idiomatic SoundScript](../guides/idiomatic-soundscript.md)

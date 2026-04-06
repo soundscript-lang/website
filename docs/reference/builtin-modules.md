@@ -1,109 +1,76 @@
 ---
 title: Builtin Modules
-description: The `sts:*` builtin modules and when they matter in normal soundscript code.
+description: The `sts:*` builtin modules and the everyday patterns they support.
 ---
 
 :::note Canonical source
 This page mirrors the builtin contract in the soundscript repo, especially
-[`docs/v1-user-contract.md`](https://github.com/soundscript-lang/soundscript/blob/main/docs/v1-user-contract.md)
-and the `src/stdlib/` module surface.
+[`docs/reference/builtin-modules.md`](https://github.com/soundscript-lang/soundscript/blob/main/docs/reference/builtin-modules.md)
+and [`docs/v1-user-contract.md`](https://github.com/soundscript-lang/soundscript/blob/main/docs/v1-user-contract.md).
 :::
 
-This page explains the `sts:*` builtin modules and when they matter in normal soundscript code.
+This page is the first-stop reference for the builtin surface most teams use in practice.
 
-soundscript owns a focused builtin module surface under `sts:*`. These are built into the language
-toolchain, not ordinary userland packages.
+## Ambient `.sts` Names
 
-## Builtins most teams notice first
+Checked `.sts` files get the core prelude names injected automatically, so you can use the common
+sound-path helpers without repeating imports in every file.
 
-### `sts:prelude`
+The ambient names are:
 
-Small helpers around common result- and option-style flows.
+- carriers and constructors: `Result`, `Option`, `Ok`, `Err`, `Some`, `None`, `ok`, `err`,
+  `some`, `none`
+- control-flow helpers: `Try`, `Match`, `where`, `Defer`
+- carrier guards: `isOk`, `isErr`, `isSome`, `isNone`
+- failure helpers and terminal helpers: `Failure`, `todo`, `unreachable`
 
-### `sts:failures`
+## `sts:prelude`
 
-Failure-oriented utilities such as `Failure`, `ErrorFrame`, and `normalizeThrown(...)`.
+`sts:prelude` is the explicit import form of the same core surface.
 
-### `sts:json`
+Use it when you want the prelude names in a file that prefers imports, or when you want an import
+statement to make the ownership boundary obvious.
 
-Helpers for parsing, stringifying, and working at JSON boundaries.
+It re-exports the same core values and types.
 
-### `sts:numerics`
+## Stable Leaf Modules
 
-Explicit fixed-width numeric types and helpers.
+The stable `sts:*` surface stays focused and composable.
 
-```ts
-import { type Failure, normalizeThrown } from "sts:failures";
-import { U8, type u8 } from "sts:numerics";
-```
+- `sts:result` owns the canonical `Result` / `Option` carriers and result-first helpers such as
+  `mapErr`, `tapErr`, `unwrapOr`, `unwrapOrElse`, and `collect`.
+- `sts:match` owns `Match` and `where`.
+- `sts:failures` owns `Failure`, `ErrorFrame`, and `normalizeThrown(...)`.
+- `sts:json` owns JSON boundary helpers for parsing, stringifying, and plain JSON validation, plus
+  small record helpers such as `isJsonObject`, `emptyJsonRecord`, `copyJsonRecord`, and
+  `mergeJsonRecords`.
+- `sts:decode` owns decoder contracts and structural decode helpers such as `literal`,
+  `nullable`, `defaulted`, and `readonlyRecord`.
+- `sts:encode` owns encoder contracts and basic encode combinators.
+- `sts:codec` owns codec contracts and adapter helpers.
+- `sts:async` owns `Task<T, E>` and result-first async helpers.
+- `sts:compare` owns `Eq`, `Order`, and comparator composition helpers.
+- `sts:hash` owns hashing and equality-key protocols.
+- `sts:derive` owns compiler-provided declaration macros such as `eq`, `hash`, `decode`, `encode`,
+  `codec`, and `tagged`.
+- `sts:hkt` owns low-level higher-kinded type machinery.
+- `sts:typeclasses` owns `Functor`, `Applicative`, `Monad`, `AsyncMonad`, and `Do`.
+- `sts:url`, `sts:fetch`, `sts:text`, and `sts:random` are the initial portable leaf modules.
 
-## Other builtin families
+## Experimental Modules
 
-The wider surface also includes:
+The repository also includes implemented builtin modules that stay outside the stable v1 contract.
 
-- `sts:compare`
-- `sts:component`
-- `sts:css`
-- `sts:debug`
-- `sts:hash`
-- `sts:decode`
-- `sts:encode`
-- `sts:codec`
-- `sts:derive`
-- `sts:async`
-- `sts:fetch`
-- `sts:graphql`
-- `sts:hkt`
-- `sts:json`
-- `sts:match`
-- `sts:macros`
-- `sts:random`
-- `sts:result`
-- `sts:sql`
-- `sts:text`
-- `sts:thunk`
-- `sts:typeclasses`
-- `sts:url`
+- `sts:numerics`
 - `sts:value`
+- `sts:thunk`
+- `sts:sql`
+- `sts:css`
+- `sts:graphql`
+- `sts:debug`
+- `sts:experimental/*`
 
-## Why this surface exists
+## See Also
 
-The builtin modules give soundscript a place to define shared contracts for:
-
-- failure handling
-- decoding and encoding
-- comparison and hashing
-- explicit numeric semantics
-- small pieces of shared abstraction machinery
-
-This is not meant to replace the npm ecosystem. The builtin surface stays focused on the places
-where the language needs shared contracts.
-
-## When to reach for them
-
-Use builtins when they line up directly with the problem:
-
-- `sts:failures` at foreign boundaries
-- `sts:json` at JSON boundaries
-- `sts:numerics` when host numerics are too implicit
-
-`normalizeThrown(...)` is mainly for the cases where you need the normalized error value inside the
-current function. Propagating throws does not require you to call it manually.
-
-If a normal ecosystem package is the right tool, use it and mark the boundary explicitly.
-
-## What most teams can ignore at first
-
-Some builtin families are more advanced and should not dominate the first-run story for app teams:
-
-- `sts:hkt`
-- `sts:typeclasses`
-- macro-oriented surfaces such as `sts:macros`
-
-They are part of the language, but most developers do not need them right away.
-
-## See also
-
+- [Idiomatic SoundScript](../guides/idiomatic-soundscript.md)
 - [Runtime and Builtins](../concepts/runtime-and-builtins.md)
-- [Fixed-Width Numeric Types](./machine-numerics.md)
-- [Macros](./macros.md)
