@@ -32,6 +32,7 @@ Rules:
 
 Builtin directives:
 
+- `effects`
 - `extern`
 - `interop`
 - `newtype`
@@ -53,6 +54,7 @@ compiler-only magic. See [Macros](./macros.md) for the authoring model and suppo
 
 ## Where each one attaches
 
+- `#[effects(...)]` attaches to callable declarations and callable type members, plus function-valued parameters for parameter-local negative contracts
 - `#[interop]` attaches to import boundaries
 - `#[extern]` attaches to local ambient runtime declarations
 - `#[variance(...)]` attaches to generic interfaces and type aliases
@@ -74,8 +76,44 @@ That matters because teams can:
 
 Today, only these builtin forms take arguments:
 
+- `// #[effects(...)]`
 - `// #[variance(...)]`
 - `// #[value(deep: true)]`
+
+## `#[effects(...)]`
+
+`effects` is the builtin effect-summary and effect-contract annotation.
+
+Supported fields:
+
+- `add`
+- `forbid`
+- `forward`
+- `unknown`
+
+Rules:
+
+- effect names are open dotted identifiers such as `fails.rejects`, `host.io`, `host.node.fs`, and `host.browser.dom`
+- `forward` must use parameter-rooted callable references or `{ from, rewrite?, handle? }` objects
+- `unknown` currently only supports `unknown: [direct]`
+- bodyful local callables use `forbid` and `forward`
+- declaration-only callable surfaces use `add`, `forward`, and optionally `unknown`
+- function-valued parameters use `forbid` only
+
+Quick example:
+
+```ts
+// #[effects(
+//   add: [suspend.await],
+//   forward: [{ from: callback, rewrite: [{ from: fails, to: fails.rejects }] }],
+// )]
+declare function toPromise<T>(callback: () => T): Promise<T>;
+```
+
+For the full current surface and semantics, see the canonical repo spec and the advanced guide:
+
+- [Advanced Effects](../guides/advanced-effects.md)
+- [`docs/annotation-spec.md` in the soundscript repo](https://github.com/soundscript-lang/soundscript/blob/main/docs/annotation-spec.md)
 
 ## `#[value]`
 
@@ -115,7 +153,7 @@ interface Reader<T> {
 The current annotation system does **not** include:
 
 - parser-level `#[...]` syntax
-- parameter annotations
+- arbitrary parameter annotations, except for `#[effects(...)]` on function-valued parameters
 - type-parameter annotations
 - arbitrary type-expression macros
 
@@ -125,6 +163,7 @@ soundscript keeps TypeScript parser syntax. The annotation system is intentional
 
 ## See also
 
+- [Advanced Effects](../guides/advanced-effects.md)
 - [Newtypes and Value Classes](./newtypes-and-value-classes.md)
 - [Variance Contracts](./variance-contracts.md)
 - [Macros](./macros.md)

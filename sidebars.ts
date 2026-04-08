@@ -33,6 +33,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'How-to Guides',
       items: [
+        'guides/advanced-effects',
         'guides/tooling-and-js-target',
         'guides/ci-and-editor-setup',
         'guides/publishing-packages',
