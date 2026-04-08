@@ -96,9 +96,17 @@ Rules:
 - effect names are open dotted identifiers such as `fails.rejects`, `host.io`, `host.node.fs`, and `host.browser.dom`
 - `forward` must use parameter-rooted callable references or `{ from, rewrite?, handle? }` objects
 - `unknown` currently only supports `unknown: [direct]`
-- bodyful local callables use `forbid` and `forward`
+- bodyful local callables may use `add`, `forbid`, and `forward`
+- bodyful `add` is monotonic: it unions with inferred effects and never hides inferred lower-level behavior
 - declaration-only callable surfaces use `add`, `forward`, and optionally `unknown`
 - function-valued parameters use `forbid` only
+- overload signatures with an implementation sibling must stay effect-unannotated
+- there is no allow-list or "all except ..." surface in `#[effects(...)]`
+- transitive effects stay honest, so policies like "allow database I/O but forbid other I/O" are not representable today without a different abstraction model
+
+Most ordinary bodyful soundscript code should rely on inference alone. Explicit callable-level
+`add` and `forward` are mainly for declaration frontiers and for the cases where you intentionally
+widen or transform the honest inferred surface.
 
 Quick example:
 

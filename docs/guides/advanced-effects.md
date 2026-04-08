@@ -46,11 +46,31 @@ include:
 - `host.node.process`
 - `host.browser.dom`
 - `host.browser.message`
-- `host.db.query`
-- `host.db.transaction`
 
 The core names are about broad semantics. The dotted tags are where you encode platform or
 application-specific policy boundaries.
+
+## When you should actually write effect annotations
+
+Most ordinary bodyful soundscript code should not need them.
+
+In the current model, start from this default:
+
+- bodyful functions should rely on inference
+- generated declarations should project that inferred summary outward
+- explicit effect annotations are mainly for real declaration frontiers and intentionally
+  effect-transforming higher-order surfaces
+
+That means:
+
+- a normal bodyful wrapper over other soundscript code usually needs no annotation
+- a facade over ambient globals or foreign declarations usually does need an explicit declaration
+  summary
+- a higher-order wrapper only needs explicit `forward` / `rewrite` / `handle` when inference does
+  not already recover the intended public summary
+
+The shipped `sts:*` stdlib now follows that rule. Its remaining explicit effects are on host
+facades such as `sts:fetch`, `sts:text`, and `sts:url`, not on ordinary bodyful helper code.
 
 ## Prefix containment matters
 
@@ -112,76 +132,37 @@ The evaluation order is always:
 The main design constraint today is that `forbid` is subtractive only. There is no allow-list or
 "all except ..." operator.
 
-That means this policy is *not* directly representable:
+The main design constraint today is that `forbid` is subtractive only. There is no allow-list or
+"all except ..." operator.
 
-- forbid all `host.*`
-- but still allow `host.db.query`
+That means some intuitive policy shapes are *not* directly representable.
 
-`forbid: [host]` forbids every `host.*` descendant, including `host.db.query`.
+In particular, this does not work as an honest transitive rule:
 
-If you need "db queries are allowed, generic file/network I/O is not", choose names that do not
-overlap:
+- forbid `host.io`
+- but still allow database queries implemented with lower-level `host.io`
 
-- allowed: `host.db.query`
-- forbidden: `host.io`
+If a real query implementation performs network or file I/O, then its summary still contains
+`host.io`. Adding a more specific tag does not erase the underlying effect. Effects describe what
+happened, not why it happened.
 
-That is the main naming rule for policy-oriented effects:
+So the practical naming rule is:
 
-- put shared semantics under shared prefixes only when you also want shared forbids to catch them
-- if a family needs a special exception boundary, keep it outside the forbidden prefix
-
-## Transaction policy example
-
-The checked-in repo example models a transaction wrapper like this:
-
-```ts
-// #[extern]
-// #[effects(add: [host.db.transaction, suspend.await], forward: [action])]
-declare function inTransaction<T>(
-  // #[effects(forbid: [host.io])]
-  action: () => Promise<T>,
-): Promise<T>;
-```
-
-Database operations are tagged separately from generic I/O:
-
-```ts
-// #[extern]
-// #[effects(add: [host.db.query, suspend.await])]
-declare function queryValue(sql: string): Promise<number>;
-
-// #[extern]
-// #[effects(add: [host.io, host.node.fs, suspend.await])]
-declare function readTextFile(path: string): Promise<string>;
-```
-
-That makes this transaction callback valid:
-
-```ts
-await inTransaction(async () => {
-  const balance = await queryValue('select balance from accounts where id = from-account');
-  await execute('update accounts set balance = balance - 5 where id = from-account');
-  return balance;
-});
-```
-
-and this one invalid:
-
-```ts
-await inTransaction(async () => {
-  await readTextFile('audit-template.txt');
-  return 0;
-});
-```
+- use dotted tags to classify and document boundaries honestly
+- do not expect effects alone to express purpose-based exceptions over the same transitive behavior
+- if a policy needs "DB I/O allowed, other I/O forbidden", that requires a different abstraction
+  model than the current effect system
 
 ## Practical recommendations
 
 - Use the standard core for broad semantics.
 - Add dotted library tags for platform or subsystem ownership.
-- Keep policy exceptions out of forbidden ancestor prefixes.
 - Put stable declaration-frontier summaries directly on declarations.
+- Prefer inference first for bodyful code; add callable-level `add` only to classify or widen a
+  callable honestly, never to restate what inference already knows.
 - Reserve `unknown: [direct]` for boundaries that are intentionally opaque today.
-- Use `forward` for higher-order wrappers instead of checker-only special cases.
+- Use `forward` only when the body or summary really needs help expressing a higher-order boundary.
+- Do not rely on effects alone for purpose-based authority policies such as transaction-only DB access.
 
 ## See also
 
